@@ -1,0 +1,38 @@
+{%extends 'home.html'%}
+{% load staticfiles %}
+
+{%block contenido%}
+<form method="POST">
+    {% csrf_token %}
+    {% if error %}
+        <h2>{{ error }}</h2>
+    {% else %}
+    <div class="card">
+        <div class="card-header">
+            <h2><strong>FORMULARIO INGRESO PRODUCTO</strong></h2>
+        </div>
+        <div class="card-body card-block">
+            <form action="{% url 'producto:crear_producto' %}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+
+                <div class="row form-group">
+                    <div class="col col-md-3">{{ form.nombre.label }}</div>
+                    <div class="col-12 col-md-9">{{ form.nombre }}</div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">{{ form.unidades.label }}</div>
+                    <div class="col-12 col-md-9">{{ form.unidades }}</div>
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">GUARDAR PRODUCTO</button>
+                    <a href="" type="reset" class="btn btn-danger">CANCELAR</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    {%endif%}
+    
+</form>
+{%endblock%}   
+
