@@ -20,8 +20,8 @@ class ProductoList(ListView)    :
     context_object_name         = 'productos'
     queryset                    = Productos.objects.all()
 
-class ProductoUpdate(UpdateView):
-    model = Productos
-    form_class = ProductoForm
-    template_name = 'productos/productos_form.html'
-    success_url = reverse_lazy('producto:listar_producto')
+class ProductoUpdate(UpdateView): 
+    model                       = Productos
+    form_class                  = ProductoForm
+    template_name               = 'productos/productos_form.html'
+    success_url                 = reverse_lazy('producto:listar_producto')

@@ -1,6 +1,7 @@
 {%extends 'home.html'%}
 {% load staticfiles %}
 
+
 {%block contenido%}
 <table class="table table-bordered table-striped table-hover">
         <thead>
@@ -8,7 +9,7 @@
     
                 <td scope="col"><strong>ID</strong></td>
                 <td scope="col"><strong>NOMBRE</strong></td>
-                <td scope="col"><strong>ACCIONES</strong></td>
+                <td scope="col"><strong>UNIDADES</strong></td>
             </tr>
     
         </thead>
@@ -19,14 +20,15 @@
     
                 <td>{{ producto.id }}</td>
                 <td>{{ producto.nombre }}</td>
+                <td>{{ producto.unidades }}</td>
                 <td>
                     <form method="POST" action="#">
                         {% csrf_token %}
                         <div class="btn-group">
                             <a href="#" title="Ver" type="button"
-                                class="btn btn-success">Ver </a>
+                                class="btn btn-outline-primary">Ver </a>
                             <a href="{%url 'producto:editar_producto' producto.id%}" title="Editar" type="button"
-                                class="btn btn-primary">Editar </a>
+                                class="btn btn-secundary">Editar </a>
                             <button class="btn btn-danger" onclick="return eliminar();" type="submit">Eliminar</button>
                         </div>
                     </form>
