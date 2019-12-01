@@ -1,0 +1,48 @@
+{%extends 'home.html'%}
+{% load staticfiles %}
+
+
+{%block contenido%}
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr class="col-general">
+
+            <td scope="col"><strong>ID</strong></td>
+            <td scope="col"><strong>FECHA</strong></td>
+            <td scope="col"><strong>COMENTARIOS</strong></td>
+        </tr>
+
+    </thead>
+    <tbody>
+        {% if ventas %}
+        {% for ventas in ventas %}
+        <tr id="row-listar-ventas">
+
+            <td>{{ ventas.id }}</td>
+            <td>{{ ventas.fecha }}</td>
+            <td>{{ ventas.comentarios }}</td>
+            
+            <td>
+                <form method="POST" action="#">
+                    {% csrf_token %}
+                    <div class="btn-group">
+                        <a href="#" title="Ver" type="button"
+                            class="btn btn-outline-primary">Ver </a>
+                        <a href="{%url 'ventas:editar_ventas' ventas.id%}" title="Editar" type="button"
+                            class="btn btn-secundary">Editar </a>
+                        <button class="btn btn-danger" onclick="return eliminar();" type="submit">Eliminar</button>
+                    </div>
+                </form>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        {% endfor %}
+        {% else %}
+        <h2>No existen productos registrados</h2>
+        {% endif %}
+    </tbody>
+</table>
+{%endblock%}

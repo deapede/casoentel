@@ -6,3 +6,5 @@ from django.db import models
 class Ventas(models.Model):
     fecha       = models.DateField()
     comentarios = models.TextField()
+
+

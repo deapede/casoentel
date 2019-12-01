@@ -12,7 +12,10 @@ class ProductoCreate(CreateView):
     model                       = Productos
     template_name               = 'productos/productos_form.html'
     fields                      = "__all__" 
-    success_url                 = reverse_lazy('producto: listar_producto')
+    success_url                 = reverse_lazy('producto:listar_producto')
+
+    def get_succes_url(self):
+        return reverse('productos:listar_producto.html')
 
 class ProductoList(ListView)    : 
     model                       = Productos
