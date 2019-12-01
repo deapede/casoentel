@@ -26,16 +26,20 @@ class VentasCreate(CreateView)  :
       fields                    = "__all__" 
       success_url               = reverse_lazy('ventas: crear_ventas')
 
-      def get_succes_url(self)  : 
-          return reverse('ventas: listar_ventas')
+      #def get_succes_url(self)  : 
+       #   return reverse('ventas: listar_ventas')
 
 
 class VentasUpdate(UpdateView)  : 
     model                       = Ventas
     form_class                  = VentasForm
     template_name               = 'ventas/crear_ventas.html'
-    success_url                 = reverse_lazy('ventas: listar_ventas')
+    success_url                 = reverse_lazy('ventas:listar_ventas')
     #queryset                    = Ventas.objects.all()
 
+    
+           
+        
+    
 
 

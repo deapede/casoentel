@@ -15,7 +15,7 @@ class VentasForm(forms.ModelForm):
         }
         widget                   = {
             'fecha'              : forms.DateInput(attrs  = {'class': 'form-control'}),
-            'comentarios'        : forms.TextInput(attrs = {'class': 'form-control'}),
+            'comentarios'        : forms.Textarea(attrs = {'class': 'form-control'}),
             
             
         }
